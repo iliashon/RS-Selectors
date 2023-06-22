@@ -101,3 +101,9 @@ typings/
 
 # TernJS port file
 .tern-port
+
+# ignore firebase
+firebase.json
+.firebaserc
+.firebase
+public

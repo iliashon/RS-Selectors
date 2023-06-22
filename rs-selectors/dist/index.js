@@ -1,1 +1,0 @@
-(()=>{"use strict";fetch("https://rs-selectors-default-rtdb.firebaseio.com/user.json").then((e=>e.json())).then((e=>console.log(e)))})();

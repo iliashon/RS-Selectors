@@ -5,10 +5,12 @@
   border: 8px solid #1d1915;
   display: flex;
 }
+
 .editor-window {
   width: calc(100% / 2);
   border: 1px solid #373737;
 }
+
 .title-editor {
   color: #fff;
   display: flex;
@@ -17,14 +19,17 @@
   padding: 7px 15px;
   background-color: #27221d;
 }
+
 .code-window {
   height: calc(100% - 32px);
   background-color: #fff;
   position: relative;
 }
+
 .html-code {
   background-color: #201c16;
 }
+
 .number-line {
   position: absolute;
   color: #999999;
@@ -36,13 +41,27 @@
   padding: 15px 10px;
   line-height: 140%;
 }
+
 .html-number-line {
   background-color: #201c16;
   border: 1px solid #373737;
 }
+
 .input-code {
-  width: calc(100% - 37.8px - 70px);
-  height: 50px;
+  width: calc(100% - 37.8px - 100px);
   font-size: 15px;
   margin-top: 10px;
+  border: 0;
+  padding: 5px;
+  outline: none;
+  animation: input 0.4s infinite alternate;
+}
+
+@keyframes input {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: rgb(255, 254, 168);
+  }
 }

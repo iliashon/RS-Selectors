@@ -129,3 +129,23 @@
   border-bottom: 1px solid #73706d;
   margin-bottom: 20px;
 }
+
+.burger-button span {
+  display: block;
+  margin-top: 8px;
+  width: 30px;
+  height: 2px;
+  background-color:#73706d;
+  transition: 0.3s;
+}
+
+.burger-button {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.burger-button:hover > span {
+  background-color: #d8d8d8;
+}

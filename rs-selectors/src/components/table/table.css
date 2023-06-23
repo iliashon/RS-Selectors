@@ -1,0 +1,41 @@
+.table-edge {
+  margin: 0 auto 10px auto;
+  background: #ac741c;
+  height: 15px;
+  transform: rotateX(-40deg);
+  transform-origin: top;
+  opacity: 1;
+  width: 397px;
+}
+#game-wrapper {
+  transform: translate3d(0,0,0);
+    perspective: 400px;
+    text-align: center;
+    position: relative;
+    padding-top: 15px;
+    margin-bottom: 50px;
+}
+.table-wrapper {
+  min-height: 146px;
+    transform-origin: bottom;
+    z-index: 9999;
+    position: relative;
+    margin: 14px auto 0 auto;
+    opacity: 1;
+    transform: rotateX(20deg);
+    width: 397px;
+    background: linear-gradient(#dd992d,#cd8c26);
+}
+.table-leg {
+    width: 24px;
+    height: 25px;
+    background: #84570f;
+    position: absolute;
+    top: 15px;
+}
+.table-leg:first-child {
+  left: 20px;
+}
+.table-leg:last-child {
+  right: 20px;
+}

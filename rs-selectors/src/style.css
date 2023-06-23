@@ -1,3 +1,6 @@
+@import url(./components/table/table.css);
+@import url(./components/code-editor/editor.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +26,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 2;
+  text-align: center;
 }
 
 #header {

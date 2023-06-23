@@ -1,0 +1,47 @@
+.editor {
+  width: 90%;
+  margin: 0 auto;
+  height: 500px;
+  border: 8px solid #1d1915;
+  display: flex;
+}
+.editor-window {
+  width: calc(100% / 2);
+  border: 1px solid #373737;
+}
+.title-editor {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 15px;
+  background-color: #27221d;
+}
+.code-window {
+  height: calc(100% - 32px);
+  background-color: #fff;
+  position: relative;
+}
+.html-code {
+  background-color: #201c16;
+}
+.number-line {
+  position: absolute;
+  color: #999999;
+  display: flex;
+  background-color: #dddddd;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px 10px;
+  line-height: 140%;
+}
+.html-number-line {
+  background-color: #201c16;
+  border: 1px solid #373737;
+}
+.input-code {
+  width: calc(100% - 37.8px - 70px);
+  height: 50px;
+  font-size: 15px;
+}

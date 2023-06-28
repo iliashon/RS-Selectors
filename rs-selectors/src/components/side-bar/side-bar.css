@@ -14,9 +14,14 @@
   display: block;
   width: 13px;
   height: 22px;
+  border-bottom: 4px solid #686562;
+  border-right: 4px solid #686562;
+  transform: rotate(45deg);
+}
+
+.check_active {
   border-bottom: 4px solid #80e88a;
   border-right: 4px solid #80e88a;
-  transform: rotate(45deg);
 }
 
 .level-progress {
@@ -124,12 +129,22 @@
   padding: 0 10px 0 0;
   line-height: 25px;
 }
-.example strong {
+.help-info strong {
   background-color: #26231f;
   border-bottom: 1px solid #73706d;
   margin-bottom: 20px;
 }
-
+tag::after {
+  content: '>';
+}
+tag::before {
+  content: '<';
+}
+tag {
+  background-color: #26231f;
+  border-bottom: 1px solid #73706d;
+  margin-bottom: 20px;
+}
 .burger-button span {
   display: block;
   margin-top: 8px;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-glyphs/30/FA5252/source-code.png" type="image/x-icon">
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -49,7 +50,10 @@
             <div class="number-line">
               1<br />2<br />3<br />4<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
             </div>
-            <input type="text" class="input-code" placeholder="Type in a CSS selector" />
+            <form action="">
+              <input type="text" class="input-code" placeholder="Type in a CSS selector" />
+              <input type="submit" value="Enter">
+            </form>
           </div>
         </div>
         <div class="editor-window html-window">
@@ -72,7 +76,7 @@
     <div id="side-bar">
       <div class="level-bar">
         <div class="level-info">
-          <span class="level-number">Level 1 of 10</span>
+          <span class="level-number">Level <strong class="active-level"></strong> of <strong class="quantity-levels"></strong></span>
           <span class="level-check"></span>
         </div>
         <div class="level-nav">

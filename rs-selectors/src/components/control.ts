@@ -1,3 +1,4 @@
+import Code from './code-editor/code';
 import Service from './service/service';
 import { IDataLevels } from './service/typeService';
 import SideBar from './side-bar/side-bar';
@@ -5,7 +6,7 @@ import SideBar from './side-bar/side-bar';
 class Controller {
   private dbLink: string;
 
-  public activeTaskNumber: number = 2;
+  public activeTaskNumber!: number;
 
   public sideBar!: object;
 
@@ -29,6 +30,11 @@ class Controller {
     } else {
       this.dataLevels = JSON.parse(localStorage.getItem('levels') || '');
     }
+    if (localStorage.getItem('saveLevel') === null) {
+      this.activeTaskNumber = 1;
+    } else {
+      this.activeTaskNumber = +(localStorage.getItem('saveLevel') || '');
+    }
     this.dataDistribution();
     this.switchTasks();
     this.startTraking();
@@ -37,16 +43,18 @@ class Controller {
   public dataDistribution(): void {
     this.sideBar = new SideBar();
     console.log(this.activeTaskNumber);
-    SideBar.render(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
+    SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
+    Code.renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].html);
   }
 
   public checkAnswer(event: Event): void {
     event.preventDefault();
     const input = document.querySelector('.input-code') as HTMLInputElement;
     if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
-      console.log(true);
-    } else {
-      console.log(false);
+      this.dataLevels[this.activeTaskNumber - 1].state = true;
+      SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
+      input.value = '';
+      localStorage.setItem('levels', JSON.stringify(this.dataLevels));
     }
   }
 
@@ -63,9 +71,11 @@ class Controller {
       const foo = element.target as Element;
       if (foo.classList.contains('next') && this.activeTaskNumber < this.dataLevels.length) {
         this.activeTaskNumber += 1;
+        localStorage.setItem('saveLevel', this.activeTaskNumber.toString());
         this.dataDistribution();
       } else if (foo.classList.contains('prev') && this.activeTaskNumber > 1) {
         this.activeTaskNumber -= 1;
+        localStorage.setItem('saveLevel', this.activeTaskNumber.toString());
         this.dataDistribution();
       }
     });

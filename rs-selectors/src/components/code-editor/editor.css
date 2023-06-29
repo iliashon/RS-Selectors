@@ -57,6 +57,12 @@
   animation: input 0.4s infinite alternate;
 }
 
+#code-html {
+  color: #dddddd;
+  font-size: 17px;
+  margin: 0 25px ;
+}
+
 @keyframes input {
   from {
     background-color: none;

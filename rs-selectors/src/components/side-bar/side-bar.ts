@@ -1,7 +1,7 @@
 import { IDataLevels } from '../service/typeService';
 
 class SideBar {
-  public static render(data: IDataLevels, activeLevel: number, quantityLevels: number): void {
+  public static renderSideBar(data: IDataLevels, activeLevel: number, quantityLevels: number): void {
     const { examples, selectorName, syntax, title, hint, state } = data;
     const exam = document.querySelector('.examples') as Element;
     const hintHtml = document.querySelector('.selector-hint') as Element;

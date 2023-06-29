@@ -2,6 +2,7 @@ import Code from './code-editor/code';
 import Service from './service/service';
 import { IDataLevels } from './service/typeService';
 import SideBar from './side-bar/side-bar';
+import Table from './table/table';
 
 class Controller {
   private dbLink: string;
@@ -11,6 +12,8 @@ class Controller {
   public sideBar!: object;
 
   public code!: object;
+
+  public table!: object;
 
   public dataLevels!: IDataLevels[];
 
@@ -41,10 +44,17 @@ class Controller {
   }
 
   public dataDistribution(): void {
-    this.sideBar = new SideBar();
-    console.log(this.activeTaskNumber);
     SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
-    Code.renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].html);
+    Code.renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].htmlMarkup);
+    Table.renderElementsOnTable(this.dataLevels[this.activeTaskNumber - 1].html);
+    this.controlProgres();
+  }
+
+  public controlProgres(): void {
+    const lineProg = document.getElementById('line-progres-level');
+    if (lineProg !== null) {
+      lineProg.style.width = `${(100 / this.dataLevels.length) * this.activeTaskNumber}%`;
+    }
   }
 
   public checkAnswer(event: Event): void {

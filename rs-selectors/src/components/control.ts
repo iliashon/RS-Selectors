@@ -55,6 +55,10 @@ class Controller {
       SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
       input.value = '';
       localStorage.setItem('levels', JSON.stringify(this.dataLevels));
+      this.activeTaskNumber += 1;
+      setTimeout(() => {
+        this.dataDistribution();
+      }, 1000);
     }
   }
 

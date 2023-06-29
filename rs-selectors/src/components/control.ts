@@ -1,4 +1,3 @@
-import Code from './code-editor/code';
 import Service from './service/service';
 import { IDataLevels } from './service/typeService';
 import SideBar from './side-bar/side-bar';
@@ -32,14 +31,30 @@ class Controller {
     }
     this.dataDistribution();
     this.switchTasks();
+    this.startTraking();
   }
 
   public dataDistribution(): void {
     this.sideBar = new SideBar();
-    this.code = new Code();
     console.log(this.activeTaskNumber);
     SideBar.render(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
-    Code.startTracking(this.dataLevels[this.activeTaskNumber - 1]);
+  }
+
+  public checkAnswer(event: Event): void {
+    event.preventDefault();
+    const input = document.querySelector('.input-code') as HTMLInputElement;
+    if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+
+  public startTraking(): void {
+    const form = document.querySelector('#form-code') as Element;
+    form.addEventListener('submit', (event) => {
+      this.checkAnswer(event);
+    });
   }
 
   public switchTasks(): void {

@@ -1,9 +1,9 @@
-import Code from './code-editor/code';
+import renderHmtlMarkup from './code-editor/code';
 import Service from './service/service';
 import { IDataLevels } from './service/typeService';
-import LevelList from './side-bar/level-list';
-import SideBar from './side-bar/side-bar';
-import Table from './table/table';
+import renderLevelList from './side-bar/level-list';
+import renderSideBar from './side-bar/side-bar';
+import renderElementsOnTable from './table/table';
 
 class Controller {
   private dbLink: string;
@@ -49,11 +49,12 @@ class Controller {
   }
 
   public dataDistribution(): void {
-    SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
-    Code.renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].htmlMarkup);
-    Table.renderElementsOnTable(this.dataLevels[this.activeTaskNumber - 1].html);
-    LevelList.renderLevelList(this.activeTaskNumber);
+    renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
+    renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].htmlMarkup);
+    renderElementsOnTable(this.dataLevels[this.activeTaskNumber - 1].html);
+    renderLevelList(this.activeTaskNumber);
     this.controlProgres();
+    // Controller.hoverCodeOnTable();
   }
 
   public controlProgres(): void {
@@ -86,7 +87,7 @@ class Controller {
     const submitBtn = document.querySelector('.submit-code') as Element;
     if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
       this.dataLevels[this.activeTaskNumber - 1].state = true;
-      SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
+      renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
       input.value = '';
       localStorage.setItem('levels', JSON.stringify(this.dataLevels));
       if (this.activeTaskNumber === this.dataLevels.length) {
@@ -181,6 +182,15 @@ class Controller {
       }
     });
   }
+
+  // public static hoverCodeOnTable(): void {
+  //   const markup = document.querySelector('.table-markup') as Element;
+  //   console.log(markup.childNodes[0]);
+  //   markup.childNodes.forEach((node, index) => {
+  //     if (node.nodeName === ) {
+  //     }
+  //   });
+  // }
 }
 
 export default Controller;

@@ -1,0 +1,16 @@
+#footer {
+  color: #75726e;
+  margin: 40px 0;
+  line-height: 200%;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #9c9b9b;
+  transition: 0.3s;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+  color: #b6b6b6;
+}

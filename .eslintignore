@@ -1,0 +1,9 @@
+# ignore dist 
+
+# webpack ignore
+webpack.config.js
+webpack.dev.config.js
+webpack.prod.config.js
+
+# eslint config ignore 
+.eslintrc.js

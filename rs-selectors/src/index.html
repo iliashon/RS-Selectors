@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-glyphs/30/FA5252/source-code.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RS-Selectors</title>
+  </head>
+  <body>
+    <main id="playing-field">
+      <div id="header">
+        <h4 id="logo">CSS-Selectors</h4>
+        <ul class="header_social-media">
+          <li class="social-media_item">Contacts</li>
+          <li class="social-media_item">
+            <a href="mailto:itupalski@gmail.com"
+              ><img src="https://img.icons8.com/windows/32/FFFFFF/filled-message.png" alt=""
+            /></a>
+          </li>
+          <li class="social-media_item">
+            <a href="https://github.com/iliashon" target="_blank"
+              ><img src="https://img.icons8.com/windows/32/FFFFFF/github.png" alt=""
+            /></a>
+          </li>
+          <li class="social-media_item">
+            <a href="https://www.linkedin.com/in/ilya-tupalski/" target="_blank"
+              ><img src="https://img.icons8.com/windows/32/FFFFFF/linkedin.png" alt=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <h2 id="title-lvl">Select the bento boxes</h2>
+      <div class="help-block">
+        <button class="help-link">Help, I'm stuck!</button>
+        <div class="help-text"></div>
+      </div>
+      <div id="game-wrapper">
+        <div class="table-wrapper">
+          <div class="table"></div>
+        </div>
+        <div class="table-edge">
+          <div class="table-leg"></div>
+          <div class="table-leg"></div>
+        </div>
+      </div>
+      <div class="editor">
+        <div class="editor-window">
+          <div class="title-editor">
+            <h4>CSS Editor</h4>
+            <h5>style.css</h5>
+          </div>
+          <div class="code-window">
+            <div class="number-line">
+              1<br />2<br />3<br />4<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
+            </div>
+            <form action="" id="form-code">
+              <input type="text" class="input-code" placeholder="Type in a CSS selector" />
+              <input class="submit-code" type="submit" value="Enter" />
+            </form>
+          </div>
+        </div>
+        <div class="editor-window html-window">
+          <div class="title-editor">
+            <h4>HTML Viewer</h4>
+            <h5>table.html</h5>
+          </div>
+          <div class="code-window html-code">
+            <div class="number-line html-number-line">
+              1<br />2<br />3<br />4<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20
+            </div>
+            <div class="markup">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <p>Made by <a href="https://github.com/iliashon">iliashon</a> — come say hi!</p>
+        <p>
+          Have feedback or questions? Please file an isssue on
+          <a href="https://github.com/iliashon/RS-Selectors">the Github repo</a>.
+        </p>
+      </div>
+    </main>
+    <div id="side-bar">
+      <div class="level-bar">
+        <div class="level-info">
+          <span class="level-number"
+            >Level <strong class="active-level"></strong> of <strong class="quantity-levels"></strong
+          ></span>
+          <span class="level-check"></span>
+        </div>
+        <div class="level-nav">
+          <a href="#" class="prev"></a>
+          <a href="#" class="next"></a>
+        </div>
+        <div class="level-progress">
+          <div class="line-progress" id="line-progres-level"></div>
+        </div>
+        <div class="help-info">
+          <h3 class="selector-name"></h3>
+          <h2 class="selector-title"></h2>
+          <h3 class="selector-syntax"></h3>
+          <div class="selector-hint"></div>
+          <h4 class="exemples-title">Examples</h4>
+          <div class="examples"></div>
+        </div>
+      </div>
+      <div class="level-list">
+        <h3>Choose a level</h3>
+        <ul class="lvl-list-block"></ul>
+        <button class="reset-state">Reset Progress</button>
+      </div>
+      <div class="burger-button">
+        <div class="burger-line"></div>
+      </div>
+    </div>
+    <!-- <script src="./index.js"></script> -->
+  </body>
+</html>

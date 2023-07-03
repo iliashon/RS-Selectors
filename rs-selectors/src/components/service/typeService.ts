@@ -20,4 +20,6 @@ export interface IDataLevels {
   title: string;
   state: boolean;
   htmlMarkup: string;
+  titleTask: string;
+  help: string;
 }

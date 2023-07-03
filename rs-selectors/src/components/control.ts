@@ -45,6 +45,7 @@ class Controller {
     this.resetProgress();
     Controller.burgerMenu();
     this.listenClickInLvlList();
+    Controller.openOrCloseHelpBlock();
   }
 
   public dataDistribution(): void {
@@ -156,6 +157,19 @@ class Controller {
       this.dataLevels = JSON.parse(localStorage.getItem('levelsDefault') || '');
       this.activeTaskNumber = 1;
       this.dataDistribution();
+    });
+  }
+
+  public static openOrCloseHelpBlock(): void {
+    const helpBtn = document.querySelector('#help-link') as Element;
+    const helpBlock = document.querySelector('.help-text') as Element;
+    helpBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!helpBlock.classList.contains('help-text__active')) {
+        helpBlock.classList.add('help-text__active');
+      } else {
+        helpBlock.classList.remove('help-text__active');
+      }
     });
   }
 }

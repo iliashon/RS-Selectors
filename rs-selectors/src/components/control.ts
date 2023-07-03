@@ -44,6 +44,7 @@ class Controller {
     this.startTraking();
     this.resetProgress();
     Controller.burgerMenu();
+    this.listenClickInLvlList();
   }
 
   public dataDistribution(): void {
@@ -51,7 +52,6 @@ class Controller {
     Code.renderHmtlMarkup(this.dataLevels[this.activeTaskNumber - 1].htmlMarkup);
     Table.renderElementsOnTable(this.dataLevels[this.activeTaskNumber - 1].html);
     LevelList.renderLevelList(this.activeTaskNumber);
-    this.listenClickInLvlList();
     this.controlProgres();
   }
 
@@ -69,9 +69,11 @@ class Controller {
       if (lvl.getAttribute('data-id')) {
         const taskNum = Number(lvl.getAttribute('data-id'));
         this.setJobNumber(taskNum);
+        Controller.openOrCloseBurger();
       } else if (lvl.parentElement?.getAttribute('data-id')) {
         const taskNum = Number(lvl.parentElement?.getAttribute('data-id'));
         this.setJobNumber(taskNum);
+        Controller.openOrCloseBurger();
       }
     });
   }

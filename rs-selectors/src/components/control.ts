@@ -170,7 +170,7 @@ class Controller {
   }
 
   public static openOrCloseHelpBlock(): void {
-    const helpBtn = document.querySelector('#help-link') as Element;
+    const helpBtn = document.querySelector('.help-link') as Element;
     const helpBlock = document.querySelector('.help-text') as Element;
     helpBtn.addEventListener('click', (event) => {
       event.preventDefault();

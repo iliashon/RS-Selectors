@@ -30,6 +30,13 @@
   background-color: #201c16;
 }
 
+.markup {
+  color: #fff;
+  text-align: start;
+  margin-left: 30px;
+  padding-top: 17px;
+}
+
 .number-line {
   position: absolute;
   color: #999999;
@@ -76,6 +83,10 @@
   color: #dddddd;
   font-size: 17px;
   margin: 0 25px ;
+}
+
+.markup div {
+  margin-left: 20px;
 }
 
 @keyframes input {

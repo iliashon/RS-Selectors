@@ -30,7 +30,7 @@
   margin: 20px 0;
 }
 
-#help-link {
+.help-link {
   padding: 5px;
   margin: 0 auto;
   width: 150px;
@@ -44,15 +44,17 @@
   border: 0;
   cursor: pointer;
   font-size: 17px;
+  transition: 0.3s;
+  overflow: hidden;
 }
 
-#help-link:hover {
+.help-link:hover {
   text-decoration: underline;
   color: #a8a8a7;
 }
 
 .help-text {
-  margin: 0 auto;
+  margin: 10px auto;
   width: 600px;
   height: 0;
   overflow: hidden;
@@ -64,4 +66,9 @@
 .help-text__active {
   height: 200px;
   padding: 10px;
+}
+
+.help-link__active {
+  height: 0;
+  padding: 0;
 }

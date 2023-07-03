@@ -159,8 +159,70 @@ tag {
   top: 30px;
   right: 25px;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .burger-button:hover > span {
   background-color: #d8d8d8;
+}
+
+.level-list {
+  background-color: #1a1612;
+  position: absolute;
+  width: 375px;
+  top: 0;
+  left: 500px;
+  bottom: 0;
+  transition: 0.5s;
+}
+
+.level-list h3 {
+  color: #b1b1b1;
+  margin: 35px 0 0 20px;
+  font-size: 22px;
+}
+
+.check-in-list {
+  display: block;
+  width: 8px;
+  height: 16px;
+  border-bottom: 3px solid #686562;
+  border-right: 3px solid #686562;
+  transform: rotate(45deg);
+}
+
+.check-in-list-active {
+  display: block;
+  width: 8px;
+  height: 16px;
+  border-bottom: 3px solid #80e88a;
+  border-right: 3px solid #80e88a;
+  transform: rotate(45deg);
+}
+
+.lvl-list-block {
+  display: flex;
+  margin-top: 15px;
+  flex-direction: column;
+  grid-gap: 5px;
+}
+
+.lvl-list-item {
+  display: flex;
+  padding-left: 20px;
+  gap: 20px;
+  color: #73706d;
+  cursor: pointer;
+}
+
+.lvl-list-item:hover {
+  background-color: #4f4f4f;
+}
+
+.burger__active {
+  transform: rotate(90deg);
+}
+
+.level-list__open {
+  left: 0;
 }

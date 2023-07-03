@@ -71,3 +71,22 @@
     background-color: rgb(255, 254, 168);
   }
 }
+
+.incorrect {
+  animation: incorrect-answer .1s 5;
+}
+
+@keyframes incorrect-answer {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-5px);
+  }
+  50% {
+      transform: translateX(0);
+  }
+  75% {
+      transform: translateX(5px);
+  }
+}

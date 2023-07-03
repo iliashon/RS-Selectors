@@ -83,6 +83,7 @@ class Controller {
     event.preventDefault();
     const input = document.querySelector('.input-code') as HTMLInputElement;
     const editor = document.querySelector('.editor') as Element;
+    const submitBtn = document.querySelector('.submit-code') as Element;
     if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
       this.dataLevels[this.activeTaskNumber - 1].state = true;
       SideBar.renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
@@ -98,7 +99,15 @@ class Controller {
         }, 1000);
       }
       localStorage.setItem('saveLevel', this.activeTaskNumber.toString());
+      submitBtn.classList.add('submit-code__active');
+      setTimeout(() => {
+        submitBtn.classList.remove('submit-code__active');
+      }, 500);
     } else {
+      submitBtn.classList.add('submit-code__active');
+      setTimeout(() => {
+        submitBtn.classList.remove('submit-code__active');
+      }, 500);
       editor.classList.add('incorrect');
       setTimeout(() => {
         editor.classList.remove('incorrect');

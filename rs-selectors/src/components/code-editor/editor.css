@@ -57,6 +57,21 @@
   animation: input 0.4s infinite alternate;
 }
 
+#form-code {
+  margin-left: 10px;
+}
+
+.submit-code {
+  width: 50px;
+  height: 30px;
+  border: solid 3px #999;
+  border-width: 1px 1px 6px 1px;
+}
+
+.submit-code__active {
+  animation: submit-button 0.1s 1;
+}
+
 #code-html {
   color: #dddddd;
   font-size: 17px;
@@ -88,5 +103,12 @@
   }
   75% {
       transform: translateX(5px);
+  }
+}
+
+@keyframes submit-button {
+  50% {
+    border-width: 1px 1px 2px 1px;
+    top: 12px;
   }
 }

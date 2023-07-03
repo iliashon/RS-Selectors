@@ -85,6 +85,7 @@ class Controller {
     const input = document.querySelector('.input-code') as HTMLInputElement;
     const editor = document.querySelector('.editor') as Element;
     const submitBtn = document.querySelector('.submit-code') as Element;
+    const table = document.querySelector('.table') as Element;
     if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
       this.dataLevels[this.activeTaskNumber - 1].state = true;
       renderSideBar(this.dataLevels[this.activeTaskNumber - 1], this.activeTaskNumber, this.dataLevels.length);
@@ -104,6 +105,7 @@ class Controller {
       setTimeout(() => {
         submitBtn.classList.remove('submit-code__active');
       }, 500);
+      console.log(table.children);
     } else {
       submitBtn.classList.add('submit-code__active');
       setTimeout(() => {

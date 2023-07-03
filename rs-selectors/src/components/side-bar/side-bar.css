@@ -45,7 +45,7 @@
   border-radius: 10px;
   right: -5px;
   top: -1px;
-  background-color:#fff;
+  background-color: #fff;
 }
 
 .level-nav {
@@ -145,21 +145,67 @@ tag {
   border-bottom: 1px solid #73706d;
   margin-bottom: 20px;
 }
-.burger-button span {
-  display: block;
-  margin-top: 8px;
-  width: 30px;
-  height: 2px;
-  background-color:#73706d;
-  transition: 0.3s;
-}
 
 .burger-button {
   position: absolute;
-  top: 30px;
+  top: 34px;
   right: 25px;
+  height: 30px;
+  width: 30px;
+  padding: 4px 2px;
   cursor: pointer;
-  transition: 0.5s;
+}
+
+.burger-line {
+  height: 2px;
+  width: 27px;
+  background: #73706d;
+  cursor: pointer;
+  position: absolute;
+  transition: 0.05s;
+}
+
+.burger-button:hover .burger-line::before {
+  background-color: #b6b6b6;
+}
+
+.burger-button:hover .burger-line::after{
+  background-color: #b6b6b6;
+}
+
+.burger-button:hover .burger-line{
+  background-color: #b6b6b6;
+}
+
+.burger-line::after,
+.burger-line::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #73706d;
+  transition: 0.15s;
+}
+
+.burger-line::after {
+  top: 20px;
+}
+
+.burger-line::before {
+  top: 10px;
+}
+
+.burger-line__active {
+  height: 0;
+}
+
+.burger-line__active::before {
+  transform: rotate(45deg);
+}
+
+.burger-line__active::after {
+  transform: rotate(-45deg);
+  top: 10px;
 }
 
 .burger-button:hover > span {
@@ -225,4 +271,23 @@ tag {
 
 .level-list__open {
   left: 0;
+}
+
+.reset-state {
+  position: absolute;
+  right: calc((375px - 150px) / 2);
+  margin-bottom: 10px;
+  bottom: 0;
+  border: 1px solid #4f4f4f;
+  background: none;
+  color: #73706d;
+  width: 150px;
+  height: 40px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.reset-state:hover {
+  background-color: #4f4f4f;
+  color: #d8d8d8;
 }

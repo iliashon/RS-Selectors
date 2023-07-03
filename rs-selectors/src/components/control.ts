@@ -18,6 +18,7 @@ class Controller {
 
   private saveLocalStorage(): void {
     localStorage.setItem('levels', JSON.stringify(this.dataLevels));
+    localStorage.setItem('levelsDefault', JSON.stringify(this.dataLevels));
   }
 
   public setJobNumber(numTask: number): void {
@@ -41,6 +42,7 @@ class Controller {
     this.dataDistribution();
     this.switchTasks();
     this.startTraking();
+    this.resetProgress();
     Controller.burgerMenu();
   }
 
@@ -67,11 +69,9 @@ class Controller {
       if (lvl.getAttribute('data-id')) {
         const taskNum = Number(lvl.getAttribute('data-id'));
         this.setJobNumber(taskNum);
-        Controller.closeBurger();
       } else if (lvl.parentElement?.getAttribute('data-id')) {
         const taskNum = Number(lvl.parentElement?.getAttribute('data-id'));
         this.setJobNumber(taskNum);
-        Controller.closeBurger();
       }
     });
   }
@@ -110,30 +110,22 @@ class Controller {
     });
   }
 
-  public static openBurger(): void {
+  public static openOrCloseBurger(): void {
     const lvlList = document.querySelector('.level-list') as Element;
     const burgerBtn = document.querySelector('.burger-line') as Element;
-    burgerBtn.classList.add('burger-line__active');
-    lvlList.classList.add('level-list__open');
-  }
-
-  public static closeBurger(): void {
-    const lvlList = document.querySelector('.level-list') as Element;
-    const burgerBtn = document.querySelector('.burger-line') as Element;
-    burgerBtn.classList.remove('burger-line__active');
-    lvlList.classList.remove('level-list__open');
+    const burgerLine = document.querySelector('.burger-line') as Element;
+    if (burgerLine.classList.contains('burger-line__active')) {
+      burgerBtn.classList.remove('burger-line__active');
+      lvlList.classList.remove('level-list__open');
+    } else {
+      burgerBtn.classList.add('burger-line__active');
+      lvlList.classList.add('level-list__open');
+    }
   }
 
   public static burgerMenu(): void {
     const burgerBtn = document.querySelector('.burger-button') as Element;
-    const burgerLine = document.querySelector('.burger-line') as Element;
-    burgerBtn.addEventListener('click', () => {
-      if (burgerLine.classList.contains('burger-line__active')) {
-        Controller.closeBurger();
-      } else {
-        Controller.openBurger();
-      }
-    });
+    burgerBtn.addEventListener('click', Controller.openOrCloseBurger);
   }
 
   public switchTasks(): void {
@@ -149,6 +141,19 @@ class Controller {
         localStorage.setItem('saveLevel', this.activeTaskNumber.toString());
         this.dataDistribution();
       }
+    });
+  }
+
+  public resetProgress(): void {
+    const buttonReset = document.querySelector('.reset-state') as Element;
+    buttonReset.addEventListener('click', () => {
+      Controller.openOrCloseBurger();
+      localStorage.removeItem('levels');
+      localStorage.removeItem('saveLevel');
+      localStorage.setItem('levels', localStorage.getItem('levelsDefault') || '');
+      this.dataLevels = JSON.parse(localStorage.getItem('levelsDefault') || '');
+      this.activeTaskNumber = 1;
+      this.dataDistribution();
     });
   }
 }

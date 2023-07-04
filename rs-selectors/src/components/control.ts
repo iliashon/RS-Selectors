@@ -85,6 +85,7 @@ class Controller {
     const input = document.querySelector('.input-code') as HTMLInputElement;
     const editor = document.querySelector('.editor') as Element;
     const submitBtn = document.querySelector('.submit-code') as Element;
+    const title = document.querySelector('#title-lvl') as Element;
     const table = document.querySelector('.table') as Element;
     if (input.value === this.dataLevels[this.activeTaskNumber - 1].answer) {
       this.dataLevels[this.activeTaskNumber - 1].state = true;
@@ -94,9 +95,12 @@ class Controller {
       if (this.activeTaskNumber === this.dataLevels.length) {
         this.dataDistribution();
         input.value = '';
+        title.textContent = 'You Win!';
       } else {
         this.activeTaskNumber += 1;
+        table.classList.add('clean');
         setTimeout(() => {
+          table.classList.remove('clean');
           this.dataDistribution();
         }, 1000);
       }
@@ -105,7 +109,6 @@ class Controller {
       setTimeout(() => {
         submitBtn.classList.remove('submit-code__active');
       }, 500);
-      console.log(table.children);
     } else {
       submitBtn.classList.add('submit-code__active');
       setTimeout(() => {

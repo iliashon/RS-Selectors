@@ -3,13 +3,6 @@ export enum EResStatus {
   er404 = 404,
 }
 
-export interface IresponseStatusFetch {
-  status: number;
-  statusText: string;
-  ok: boolean;
-  json: () => object;
-}
-
 export interface IDataLevels {
   answer: string;
   examples: string[];

@@ -1,7 +1,7 @@
-import { EResStatus, IDataLevels, IresponseStatusFetch } from './typeService';
+import { EResStatus, IDataLevels } from './typeService';
 
 class Service {
-  private static checkStatus(response: IresponseStatusFetch): IresponseStatusFetch {
+  private static checkStatus(response: Response): Response {
     if (!response.ok) {
       if (response.status === EResStatus.er401 || response.status === EResStatus.er404)
         console.log(`Sorry, but there is ${response.status} error: ${response.statusText}`);

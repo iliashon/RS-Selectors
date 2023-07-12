@@ -54,11 +54,10 @@ class Controller {
     renderElementsOnTable(this.dataLevels[this.activeTaskNumber - 1].html);
     renderLevelList(this.activeTaskNumber);
     this.controlProgres();
-    // Controller.hoverCodeOnTable();
   }
 
   public controlProgres(): void {
-    const lineProg = document.getElementById('line-progres-level');
+    const lineProg: HTMLElement | null = document.getElementById('line-progres-level');
     if (lineProg !== null) {
       lineProg.style.width = `${(100 / this.dataLevels.length) * this.activeTaskNumber}%`;
     }
@@ -69,11 +68,11 @@ class Controller {
     lvlList.addEventListener('click', (event) => {
       const lvl = event.target as Element;
       if (lvl.getAttribute('data-id')) {
-        const taskNum = Number(lvl.getAttribute('data-id'));
+        const taskNum: number = Number(lvl.getAttribute('data-id'));
         this.setJobNumber(taskNum);
         Controller.openOrCloseBurger();
       } else if (lvl.parentElement?.getAttribute('data-id')) {
-        const taskNum = Number(lvl.parentElement?.getAttribute('data-id'));
+        const taskNum: number = Number(lvl.parentElement?.getAttribute('data-id'));
         this.setJobNumber(taskNum);
         Controller.openOrCloseBurger();
       }
@@ -147,7 +146,7 @@ class Controller {
   }
 
   public switchTasks(): void {
-    const lvlNav = document.querySelector('.level-nav');
+    const lvlNav: Element | null = document.querySelector('.level-nav');
     lvlNav?.addEventListener('click', (element) => {
       const foo = element.target as Element;
       if (foo.classList.contains('next') && this.activeTaskNumber < this.dataLevels.length) {
@@ -187,15 +186,6 @@ class Controller {
       }
     });
   }
-
-  // public static hoverCodeOnTable(): void {
-  //   const markup = document.querySelector('.table-markup') as Element;
-  //   console.log(markup.childNodes[0]);
-  //   markup.childNodes.forEach((node, index) => {
-  //     if (node.nodeName === ) {
-  //     }
-  //   });
-  // }
 }
 
 export default Controller;
